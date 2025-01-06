@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySlip", "PaySlip.csproj", "{7093B2F1-35D8-4862-972A-E1B2A5947797}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Debug|x64.Build.0 = Debug|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Release|x64.ActiveCfg = Release|Any CPU
+		{7093B2F1-35D8-4862-972A-E1B2A5947797}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9104A534-B055-4EA5-8044-7B83B0F35129}
+	EndGlobalSection
+EndGlobal
