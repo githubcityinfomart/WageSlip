@@ -16,6 +16,7 @@ namespace WageSlipLive.Controllers
         public IActionResult Index()
         {
             return View();
+
         }
 
         public IActionResult Privacy()
