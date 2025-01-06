@@ -1,0 +1,201 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OMCS</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+   @*  <link href="css/style.css" rel="stylesheet" type="text/css" /> *@
+    <link rel="stylesheet" href="~/css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="header">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <div class="col-md-3">
+                    <a asp-area="" asp-controller="Home" asp-action="Home"><img src="/images/logo.png" width="265" height="92" alt="logo"></a>
+
+                </div>
+
+                <div class="col-md-9">
+                    <div class="pull-right margin-t-10">
+                        <a href="#"><i class="fa fa-2x fa-facebook white-color margin-r-10"></i></a>
+                        <a href="#"> <i class="fa fa-2x fa-linkedin white-color margin-r-10"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="nav pull-right">
+
+                        <ul>
+
+                            <li><a asp-area="" asp-controller="Home" asp-action="Home"> Home </a> </li>
+                           
+                            <li><a href="#"> Contact </a> </li>
+
+                        </ul>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+
+                <div class="list-group margin-t-25">
+                    @* <a class="list-group-item active" target="_blank" href="https://goo.gl/forms/tzbKjJqYGA"><i class="fa fa-hand-o-right"></i>  Are you HAPPY?</a> *@
+                    <a class="list-group-item" target="_blank" href="https://goo.gl/forms/PokVaqSyrM"><i class="fa fa-hand-o-right"></i> Contact Helpdesk?</a>
+                    <a class="list-group-item" asp-area="" asp-controller="Account" asp-action="Login" asp-route-companyCode="olympus"><i class="fa fa-hand-o-right"></i> Download SalarySlip</a>
+
+                    <a class="list-group-item" target="_blank" href="https://goo.gl/forms/FkwTkll8bu"><i class="fa fa-hand-o-right"></i> Refer your friends</a>
+      
+                    <a class="list-group-item" target="_blank" href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/"><i class="fa fa-hand-o-right"></i> EPF/UAN check balance</a>
+                    <a class="list-group-item  " asp-area="" asp-controller="Home" asp-action="Insurance"><i class="fa fa-hand-o-right"></i> Group Insurance</a>
+                    <a class="list-group-item" target="_blank" href="https://sso.esic.gov.in/ESICSSOAppLiferay/login.jsp"><i class="fa fa-hand-o-right"></i> ESI entitlements</a>
+
+                    <a class="list-group-item" target="_blank" href="https://goo.gl/forms/oxDk11InYy"><i class="fa fa-hand-o-right"></i> Update Contact Details</a>
+                    <a class="list-group-item  " asp-area="" asp-controller="Home" asp-action="Faq"><i class="fa fa-hand-o-right"></i> FAQs Helpline</a>
+                    <a class="list-group-item" target="_blank" href="https://chat.whatsapp.com/I4a761NxwBEHqxMwk9VimQ"><i class="fa fa-hand-o-right"></i> HR Professionals Group</a>
+                @*     <a class="list-group-item" target="_blank" href="http://goo.gl/forms/tzbKjJqYGA"><i class="fa fa-hand-o-right"></i> Are you HAPPY? Tell us!</a> *@
+                    <!-- <a class="list-group-item" href="http://goo.gl/forms/IQK8XvyPNI"><i class="fa fa-hand-o-right"></i>Submit Leave Application</a> -->
+
+                </div>
+
+                <a href="https://omcs.in/" target="_blank"><img src="/images/picture1.png" width="350" height="100" alt="#" class="margin-b-10"></a>
+
+                <a href="https://mywageslip.com/" target="_blank"><img src="/images/logowg.png" width="350" height="80" alt="#"></a>
+
+                <a href="https://www.facebook.com/Olderadults/" target="_blank"><img src="/images/banner.jpg" width="350" height="90" alt="#" class="margin-b-10"></a>
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="faq_warper">
+                    <h1 class="margin-t-30 margin-b-20 page-header">Frequently Asked Questions</h1>
+
+
+
+
+                    <h3><strong>I am an outsourced employee, what does that mean.:</strong></h3>
+                    <p>
+                        <strong>Vivek:</strong> This means that you belong to a category of those employees, whoes salary is being processed by Olympus, and that you are continue to be eligible for all the benifits which any permanent employee of any company is entitled to.
+                        Click here to know more:&nbsp; <a href="outsourced.html" target="_blank">
+                            Just Be Outsourced
+                        </a>
+                    </p>
+
+
+                    <h3><strong>How can I claim the Reimbursement?</strong></h3>
+                    <p>
+                        <strong>Rohit:</strong> If you are entitled for reimbursements
+                        you may fill up <a href="pdf/reimb.xls">This Format</a> and email to our implant at your place of deputation.
+                    </p>
+
+                    <h3><strong>What are the documents needed for speedy exit and clearance?</strong></h3>
+                    <p>
+                        <strong>Rohit:</strong> All employees are required to print,
+                        fill in hand, and submit <a href="pdf/clearance.pdf" target="_blank">Clearance Form</a> &amp; <a href="pdf/exitint.pdf" target="_blank">Exit Form</a> after getting it signed from reporting manager.
+                    </p>
+
+                    <h3><strong>Why ESI is being deducted from my commisions/incentives/payments. :</strong></h3>
+                    <p><strong>Ankur:</strong>  If we try to exclude your payments out of ESI preview you will be attracted a Fringe Benifit Tax of 6%, it is thus better that we make it a part of salary and deduct only 1.75% from salary. For list of ESI benefits please refer to Employees Hand Book link on main page.</p>
+
+                    <h3><strong>When can I withdraw my EPF :</strong></h3>
+                    <p>
+                        <strong>Anshu:</strong> As per EPF guidelines your EPF can only be withdrawn when you are either not working or are working in an organisation where EPF does not apply. There is a waiting period of 60 days
+                        except for girls who are leaving job for marriage purpose or for
+                        child birth. OMCS will help you collect your PF dues from the RPFC office within 30 days of your submitting the claim form duly filled. Claim form is available at the downloads section on main page of our site. In case you are working with an organisation where EPF is applicable it is advised that you get transferred your pf dues to the new account/place for that also the form is available on the downloads page.
+                    </p>
+
+                    <p>EPF can be withdrawn ONLY on attaining age of 58 or when you are leaving India for more than 6 months or in certain cases to pay for your insurance policy, housing loan, marriage etc subject to minimum period of service.</p>
+
+                    <h3><strong>Can I withdraw my full EPF:</strong></h3>
+                    <p><strong>Monica:</strong> After Feb 10, 2016, only your share of EPF can be withdrawn, that is 50% of total deposited in EPF &amp; FPF. The balance EPF can only be withdrawn upon reaching  the age of 58years and retirement. </p>
+
+                    <h3><strong>I do not have my UAN number:</strong></h3>
+                    <p><strong>Monica:</strong> UAN number can be easily found if you have your EPF number like PB-CHD-21406-000-yourNo and using the link "know your UAN status" under PF/UAN check balance tab on our home page.</p>
+
+                    <h3><strong>I do not have my EPF number:</strong></h3>
+                    <p><strong>Poonam:</strong> EPF number can be easily found if you have your Employee code, 6 digits, and you download your salary slip from our site.</p>
+
+                    <h3><strong>I have left job long ago, and I do not have UAN number:</strong></h3>
+                    <p><strong>Monica:</strong> For those who were not members of EPF after April 2014, they can generate own UAN number from our site under PF/UAN check balance tab on our home page</p>
+
+                    <h3><strong>I do not wish to transfer my EPF dues:</strong></h3>
+                    <p><strong>Nahida:</strong> It is not possible to withdraw EPF if your are working and are contributing to EPF. In case you try to fraudulently withdraw by giving false statement that you are not working, EPF will come to know through your Adhaar card, PAN, or Bank account, and can impose a heavy penalty on you. You are advised to activate your UAN number and through it apply for transfer of your all EPF in other accounts, through your current establishment.</p>
+
+                    <h3><strong>Will my EPF withdrawals be taxed:</strong></h3>
+                    <p><strong>Kiran:</strong> EPF withdrawals made after 5 years and value less than 30000/- are tax free, on all other  withdrawals the tax at current slab rate will be deducted. effective April 2016, all EPF deposited made on salary above 15000/- will be taxed at the time of withdrawal at 60% of the applicable tax slab at that time. </p>
+
+                    <h3><strong>Can I get paid leave for my marriage? :</strong></h3>
+                    <p><strong>Amrinder:</strong> All OMCS employees are entitled for one leave every 20 actual working days. If you have not taken leave in past so you must have already accumulated leave which you can now avail. Leave accumulation is allowed up to maximum of 30 leaves.</p>
+
+                    <h3><strong>How can i get my business card, email id, identity card? What are the charges? :</strong></h3>
+                    <p><strong>Vinod:</strong> You have to mail us through your immediate bosses for availing any of the above facilities. Where so ever permitted you will be provided these facilities free of charge.</p>
+
+                    <h3><strong>I have not received my appointment letter:</strong></h3>
+                    <p><strong>Sonia:</strong> You have to ask your location incharge to mail us your particulars so that we can investigate as to why you have not received your appointment letter. Any how as soon as we get the request you will get appointment letter from us in three working days.</p>
+
+                    <h3><strong>I do not have my ESI card, i think i deprived of my medical facilities.:</strong></h3>
+                    <p><strong>Devender:</strong> It is not so, as soon as you join Olympus, you stand covered. Click on ESI link on site with your ESI number, which you may get from your online salary slip. For Permanent ESI Card you should immediately approach the ESI Pehchan Kendra, this has to be done ONLY by you, and Olympus can just guide. Please call our ESI helpline number (north) 0 98 88 88 88 45 for further assistance.</p>
+
+                    <h3><strong>What is the bifurcation of my EPF. Sania &amp; My PF Slip does not show the complete 12 + 12% of pf deposited.</strong></h3>
+                    <p>EPF is a statutory deduction, where 12% of your basic is deducted from employee. This amount goes to EPF account. The equal amount is contributed by employer. However it is bifurcated into Family Pension and EPF. 8.33% of your basic is added to Family Pension Fund subject to maximum of 1250/-. The balace is added to your EPF. Your EPF slips only shows the EPF 12% + 3.67% or so and Family Pension Fund is not reflected in this. There is nothing to worry, when you apply for withdrawl, your entire amount is remitted back to you, both EPF and Family Pension fund. If you leave a job before 6 months, Family Pension fund is taken by the EPF department. If you work for 6 months or more you are refunded that amount also.</p>
+                    <p>EPF deposits normally earn interest of about 8.5% per annum compounded monthly. These are same or better as compared to Post Office, Public Provident Fund or PPF schemes.</p>
+
+                    <h3><strong>What is Family Pension Fund? Do we get pension also?</strong></h3>
+                    <p>Family pension fund is to insure that you get pension after you attain age of 58 years, You are entitled to family pension only if you have been a member of EPF for atleast 10 years. This can be a total period spent in various companies where EPF was applicable. In case of unfortunate death of member, member's spouse &amp; parents also get pension even if member has not completed 10 years of service. If you have started your career with a basic salary of more than 15000/- your entire money will go to PF and you will not be entitled for family pension fund.  </p>
+
+                    <h3><strong>Are we insured? Do we get something in case of accident/death?</strong></h3>
+                    <p>All our employees are ensured under ESIC scheme and those who have salary above ESI limit are insured through Group Personnel Accident Policy. You may be entitled to Medical Insurance also based on the client where you may be working. Please get in touch with your HR contact with the client to know more about it.</p>
+
+                    <p>Current ESI limit is Rs 15,000/-. You are out of coverage in case you have gross salary (not CTC) above 15,000/-.</p>
+
+                    <p>If you are contributing to EPF you are also insured under EDLI policy of EPF.</p>
+
+                    <h3><strong>Do we get salary increases?</strong></h3>
+                    <p>Normally we take up with the client to at least allow us to increase salary of our employees once a year. Increments are normally done on completion of one year or on end of financial year. Please contact your Local HR contact to know what is the procedure at your client location.</p>
+
+                    <h3><strong>I am unable to open my salary slip online?</strong></h3>
+                    <p>There are two possible reasons, 1) that you have recently joined and hence your data is yet to go online which normally takes 30-45 days from your joining date to start reflecting. 2) your default user name is your six digit code and password is XXXNNN as given on login page. you may have changed the code. in case you have changed the code, you may get it reset by sending an email to <a href="mailto:friends@omcs.in">friends@omcs.in</a>.</p>
+
+                    <p>If your query is not listed above please <a href="mailto:friends@omcs.in?subject=Help%20me%20understand%20how/why" class="linkblue"><strong>click here</strong></a></p>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+</html>

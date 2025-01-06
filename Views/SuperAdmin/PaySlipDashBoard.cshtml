@@ -1,0 +1,340 @@
+﻿  @model MyPaySlipLive.Models.ExportSlipViewModel
+
+<!doctype html>
+<html class="no-js h-100" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SalarySlip  Dashboard</title>
+
+    <style type="text/css">
+        .login-form {
+        }
+
+            .login-form form {
+                margin-bottom: 15px;
+                background: #f7f7f7;
+                box-shadow: 0px 3px 20px -7px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+
+            .login-form h2 {
+                margin: 0 0 15px;
+            }
+
+        .form-control, .btn {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+
+        .btn {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="h-100">
+    <div class="container-fluid">
+        <div class="row">
+            <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+                <div class="main-navbar sticky-top bg-info p-2 d-flex ">
+                    <!-- Main Navbar -->
+                    <div class="container">
+                        <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0 row">
+
+                            <div class="col-7 col-lg-2">
+                                <form action="#" class="main-navbar__search w-100 d-md-flex d-lg-flex">
+                                    <div class="input-group input-group-seamless ml-3">
+                                        <a href="/"><img src="~/images/logo/logo.png" width="180"></a>
+                                    </div>
+                                </form>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+                <!-- / .main-navbar -->
+                <div class="main-content-container container px-4">
+
+                    <!-- Page Header -->
+                    <div class="page-header row mt-4">
+                        <div class="d-block w-100 col-12 col-lg-9">
+                            <ul class="d-flex menu-list">
+                                <li><a asp-area="" asp-controller="SuperAdmin" asp-action="AddBlog">Add Blog</a></li>
+                                <li><a asp-area="" asp-controller="SuperAdmin" asp-action="Dashboard">Manage Company</a></li>
+                                <li><a asp-area="" asp-controller="SuperAdmin" asp-action="PaySlipDashBoard">Export Slip</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="Logout">logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Page Header -->
+                    <!-- Default Light Table -->
+
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-small mb-4">
+                                <div class="card-header border-bottom">
+                                    <h6 class="m-0">Export Pay Slip Of Company</h6>
+                                </div>
+                                @if (Model.CompanyCodes != null && Model.CompanyCodes != null)
+                                {
+                                    <form asp-controller="SuperAdmin" asp-action="GetDataByFilter" method="post" id="uploadForm">
+                                        <div>
+                                            <div class="form-group col-3">
+                                                <label for="companyCode">Select Company Code</label>
+                                                <select id="companyCode" name="companyCode" class="form-control">
+                                                    <option value="" disabled selected>-- Select a Company Code --</option>
+                                                    @foreach (var data in Model.CompanyCodes)
+                                                    {
+                                                        <option value="@data.CompanyCodes">@data.CompanyCodes</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label for="company">Select Company (Optional)</label>
+                                                <select id="company" name="selectedCompany" class="form-control">
+                                                    <option value="" disabled selected>-- Select a Company --</option>
+                                                    @foreach (var data in Model.CompanyNames)
+                                                    {
+                                                        <option value="@data.CompanyNames">@data.CompanyNames</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label for="month">Select Month (Optional)</label>
+                                                <select id="month" name="SelectedMonth" class="form-control">
+                                                    <option value="" disabled selected>-- Select a Month --</option>
+                                                    <option value="1">January</option>
+                                                    <option value="2">February</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                            </div>
+                                             <div class="form-group col-3">
+                                                <label for="ecode">Enter Employee Code (Optional)</label>
+                                                <input class="form-control" name="ecode" type="text" placeholder="Enter E Code" />
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <button type="submit" class="btn btn-accent pull-left mb-5 ">Submit</button>
+                                            </div>
+                                        </div>
+                                       
+                                    </form>
+                                }
+                                else
+                                {
+                                    <div class="form-group col-md-6">
+                                        <p>No Record Found!!!</p>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-small mb-4">
+                                <div class="card-header border-bottom">
+                                    <h6 class="m-0">Record</h6>
+                                </div>
+                                <div class="card-body p-0 pb-3 text-center">
+                                    <!-- Export Button -->
+                                  
+
+                                    <div style="overflow-x:auto; overflow-y:auto; max-height: 500px;">
+                                        <table class="table mb-0" id="exportTable">
+                                            <thead class="bg-light">
+                                                <tr>
+                                                    <th scope="col" class="border-0">#</th>
+                                                    <th scope="col" class="border-0">Company</th>
+                                                    <th scope="col" class="border-0">Name</th>
+                                                    <th scope="col" class="border-0">E Code</th>
+                                                    <th scope="col" class="border-0">Designation</th>
+                                                    <th scope="col" class="border-0">UAN Number</th>
+                                                    <th scope="col" class="border-0">ESI Number</th>
+                                                    <th scope="col" class="border-0">Location</th>
+                                                    <th scope="col" class="border-0">Basic</th>
+                                                    <th scope="col" class="border-0">Ttl</th>
+                                                    <th scope="col" class="border-0">Days</th>
+                                                    <th scope="col" class="border-0">nh/lv</th>
+                                                    <th scope="col" class="border-0">Reimb</th>
+                                                    <th scope="col" class="border-0">Month</th>
+                                                    <th scope="col" class="border-0">Ebasic</th>
+                                                    <th scope="col" class="border-0">HRA</th>
+                                                    <th scope="col" class="border-0">Conv</th>
+                                                    <th scope="col" class="border-0">Others</th>
+                                                    <th scope="col" class="border-0">Total</th>
+                                                    <th scope="col" class="border-0">Transferred to A/C</th>
+                                                    <th scope="col" class="border-0">PF</th>
+                                                    <th scope="col" class="border-0">Esi</th>
+                                                    <th scope="col" class="border-0">Advance/Other</th>
+                                                    <th scope="col" class="border-0">TDS</th>
+                                                    <th scope="col" class="border-0">Total Deduction</th>
+                                                    <th scope="col" class="border-0">Vide Cheque #</th>
+                                                    <th scope="col" class="border-0">Net INR</th>
+                                                    <th scope="col" class="border-0">PE</th>
+                                                    <th scope="col" class="border-0">Dept</th>
+                                                    <th scope="col" class="border-0">Remark</th>
+                                                </tr>
+                                            </thead>
+                                            @if (Model.UserDetail != null && Model.UserDetail.Any())
+                                            {
+                                                <button class="btn btn-primary mb-3" id="exportButton">Export to CSV</button>
+                                                int SerialNo = 1;
+                                                @foreach (var data in Model.UserDetail)
+                                                {
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>@SerialNo</td>
+                                                            <td>@data.MainCompanyName</td>
+                                                            <td>@data.Name</td>
+                                                            <td>@data.Ecode</td>
+                                                            <td>@data.Category</td>
+                                                            <td>@data.PfNumber</td>
+                                                            <td>@data.EsiNumber</td>
+                                                            <td>@data.Location</td>
+                                                            <td>@data.Basic</td>
+                                                            <td>@data.Total</td>
+                                                            <td>@data.Wdays</td>
+                                                            <td>@data.Leaves</td>
+                                                            <td>@data.ReImb</td>
+                                                            <td>@data.Month, @data.Year</td>
+                                                            <td>@data.Ebasic</td>
+                                                            <td>@data.Ehra</td>
+                                                            <td>@data.Eca</td>
+                                                            <td>@data.Eallow</td>
+                                                            <td>@data.Etotal</td>
+                                                            <td>@data.Account</td>
+                                                            <td>@data.Pf</td>
+                                                            <td>@data.Esi</td>
+                                                            <td>@data.Advance</td>
+                                                            <td>@data.Tax</td>
+                                                            <td>@data.Tded</td>
+                                                            <td>@data.Chq</td>
+                                                            <td>@data.NetInr</td>
+                                                            <td>@data.Company</td>
+                                                            <td>@data.SalBasis</td>
+                                                            <td>@data.Remark</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    SerialNo++;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <div>No Record Found, Try Selecting Different Filter!!</div>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+</body>
+</html>
+
+<script>
+    document.getElementById('exportButton').addEventListener('click', function () {
+        var table = document.getElementById('exportTable');
+        var rows = table.querySelectorAll('tr');
+        var csvContent = '';
+
+        rows.forEach(function (row, index) {
+            var rowData = [];
+            var cells = row.querySelectorAll('td, th');
+            cells.forEach(function (cell) {
+                rowData.push('"' + cell.innerText.replace(/"/g, '""') + '"'); // Escape quotes
+            });
+            csvContent += rowData.join(',') + '\n';
+        });
+
+        var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        var link = document.createElement('a');
+        if (link.download !== undefined) { // Feature detection for download attribute
+            var url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'records.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    });
+</script>
+
+
+<div id="loader" style="display:none;" class="loader-overlay">
+    <div class="loader"></div>
+    <p>Fetching Data... Please wait.</p>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            
+            $('#uploadForm').submit(function (event) {
+                $('#loader').show();   
+            });
+        });
+    </script>
+}
+
+<style>
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Loader text */
+    .loader-overlay p {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+
+

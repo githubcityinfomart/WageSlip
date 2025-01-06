@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+@if (User != null && User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        @if (User.IsInRole("Admin"))
+        {
+            <p>You are logged in as <strong>Admin</strong>.</p>
+        }
+        else if (User.IsInRole("SuperAdmin"))
+        {
+            <p>You are logged in as <strong>SuperAdmin</strong>.</p>
+        }
+        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h4 class="display-4">You Are Not Login</h4>
+  
+     </div>
+}
+

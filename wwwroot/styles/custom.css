@@ -1,0 +1,39 @@
+.star-list{display: inline-block; float: unset; width: 100px;list-style-type: none; margin: 0; padding: 0; margin-top: 5px;}
+.star-list li { float: left; width: 20px; display: block;}
+.star-list li a i{color: #ccc;}
+.star-list li a .iAct{color: #EA9410;}
+.event_status{color: #EA9410;}
+.event_status strong{color: #3d5170;}
+.pandit_prodile{ display: block; float: right;}
+.pandit_prodile img{ margin: 0 auto; display: block;}
+.pandit_prodile span{ width: 100%; display: block; float: left; text-align: center;}
+.mt-30{ margin-top: 30px;}
+.pandit_c{ color:#EA9410; }
+.pt-15{ padding-top: 15px !important;}
+.samagri_list{ display: block; list-style-type: none; margin: 0px 0 0 0px; padding: 0px;}
+.samagri_list li{padding: 5px 10px;display: inline-block;border: 1px solid #ccc; margin: 3px 0px;}
+.samagri_list li span{ color: #facc86;}
+
+/****Monika****/
+.pull-left{float:left;}
+.pull-right{float:right;}
+.pull-unset{float:unset;}
+.text-center{text-align:center !important;}
+.btn-custom-pay{background-color:transparent; border-color: #c4183c;color: #c4183c !important;}
+.btn-custom-pay:hover{background-color: #c4183c;color:#fff !important;}
+/***Spaces****/
+.spc-mrg-tp-20{margin-top:20px;}
+.spc-mrg-btm-20{margin-bottom:20px;}
+.spc-mrg-rgt-15{margin-right:15px;}
+.spc-mrg-tp-30{margin-top:31px;}
+.spc-mrg-to-70{margin-top:70px;}
+.spc-mrg-lf-100{margin-left:1}
+
+    /* keshav css start 27022020 */
+
+/* blog add */
+.ba_agimg{width:100%;float:left;display:block;}
+.ba_agimg img{border: 1px solid #e1e5eb;padding: 25px 80px;}
+.tsa_addfles { width: 100%; float: left;  display: block; padding: 12px 1px;}
+.tsa_addfles .tsa_inputchose { width: 120px;  float: left;    color: #fff; background: green;position: relative; text-align: center; padding: 8px 0px;}
+.tsa_addfles .tsa_inputchose input { position: absolute; opacity: 0; cursor: pointer; top: 0;left: 0;}

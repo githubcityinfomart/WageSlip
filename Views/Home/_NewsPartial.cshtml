@@ -1,0 +1,9 @@
+﻿@model List<MyPaySlipLive.Models.BlogDto>
+
+@foreach (var item in Model)
+{
+    <div class="news_box_one" id="news_@(item.Id)">
+        <a><i class="fa fa-calendar"></i> Date: @(item.Date?.ToString("dd-MMM-yy") ?? "N/A")</a>
+        <p>@Html.Raw(item.Details)</p>
+    </div>
+}

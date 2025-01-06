@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\PublishFileOfWageSlip</_PublishTargetUrl>
+    <History>True|2025-01-02T07:09:46.6894632Z||;True|2024-12-30T18:01:46.6872887+05:30||;True|2024-12-26T15:55:05.4255266+05:30||;True|2024-12-23T10:02:38.7253535+05:30||;True|2024-12-20T15:24:21.1894124+05:30||;True|2024-12-13T12:00:30.2156069+05:30||;True|2024-12-12T15:55:36.5857301+05:30||;True|2024-12-12T15:30:12.9295887+05:30||;True|2024-12-12T14:17:38.5563985+05:30||;True|2024-12-11T15:59:11.4955792+05:30||;True|2024-12-11T15:29:04.0642893+05:30||;True|2024-12-10T16:49:34.0151688+05:30||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

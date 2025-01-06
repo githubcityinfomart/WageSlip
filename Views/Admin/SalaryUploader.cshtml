@@ -1,0 +1,222 @@
+﻿@model IEnumerable<MyPaySlipLive.Models.AdminModel.UserDetailViewModel>
+
+<!doctype html>
+<html class="no-js h-100" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Admin  Dashboard</title>
+
+    <style type="text/css">
+        .position-sticky {
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="h-100">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Main Sidebar -->
+            <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+                <div class="main-navbar">
+                    <nav class="navbar align-items-stretch navbar-light bg-info flex-md-nowrap border-bottom p-0">
+                        <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+                            <div class="d-table m-auto">
+                                <img id="main-logo" class="d-inline-block align-top" width="180" src="~/images/logo/logo.png" alt="logo">
+                            </div>
+                        </a>
+                        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                            <i class="material-icons">&#xE5C4;</i>
+                        </a>
+                    </nav>
+                </div>
+                <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+                    <div class="input-group input-group-seamless ml-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search">
+                    </div>
+                </form>
+                <div class="nav-wrapper">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Dashboard" ? "active" : "")" asp-area="" asp-controller="Admin" asp-action="Dashboard">
+                                <i class="material-icons">people</i>
+                                <span>Manage Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "SalaryUploader" ? "active" : "")" asp-area="" asp-controller="Admin" asp-action="SalaryUploader">
+                                <i class="material-icons">upload</i>
+                                <span>Salary Upload</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </aside>
+            <!-- End Main Sidebar -->
+            <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+                <div class="main-navbar sticky-top bg-white">
+                    <!-- Main Navbar -->
+                    <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+                        <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                            <div class="input-group input-group-seamless ml-3"></div>
+                        </form>
+                        <ul class="navbar-nav border-left flex-row align-items-center">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+
+                                    <span class="d-none d-md-inline-block">Have an Account?</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-small">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
+                                        <i class="material-icons">&#xE7FD;</i> Logout
+                                    </a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ResetPassword">
+                                        <i class="material-icons">vertical_split</i> Change Password
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <nav class="nav">
+                            <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+                                <i class="material-icons">&#xE5D2;</i>
+                            </a>
+                        </nav>
+                    </nav>
+                </div>
+                <!-- / .main-navbar -->
+
+                <div class="container-fluid px-4">
+                    <!-- Page Header -->
+                    <div class="page-header row no-gutters py-4 ">
+                        <div class="col-12 text-sm-left mb-0">
+                            <h4 class="page-title">UPLOAD SALARY SHEET</h4>
+                            <h6 class="m-0">Company: @(User.Claims.FirstOrDefault(c => c.Type == "CompanyName")?.Value ?? "Default Company")</h6>
+                        </div>
+                    </div>
+                    @*    @if (!ViewData.ModelState.IsValid)
+                    {
+                    <div class="alert alert-danger">
+                    @Html.ValidationSummary(true, "Please correct the following errors:")
+                    </div>
+                    } *@
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @TempData["ErrorMessage"]
+                        </div>
+                    }
+                    <div class="clearfix"></div>
+                    <div class=" mt-2 d-flex">
+                        <p>Download Excel File</p>
+                        <a href="/Admin/DownloadExcel" class="btn btn-primary" style="margin:10px;padding:10px;">Download Sample Excel</a>
+                    </div>
+                  
+                    <form asp-controller="Admin" asp-action="UploadExcelSheet" method="post" enctype="multipart/form-data" id="uploadForm">
+                        <div class="form-group col-3">
+                            <label for="month">Select Month</label>
+                            <select id="month" name="SelectedMonth" class="form-control">
+                                <option value="" disabled selected>-- Select a Month --</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="myFile w-100"><strong>Upload :</strong> Select excel file to upload</label>
+                            <input type="file" id="myFile" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                            @Html.ValidationMessage("file", "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col-md-6">
+                            <button type="submit" class="btn btn-accent pull-left mb-5 ">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="clearfix"></div>
+                <!-- <div class="input-group-prepend"> -->
+                <!-- <button class="btn btn-primary" type="button">Add To Franchise</button> -->
+                <!-- </div> -->
+                <!-- <input type="text" class="form-control" placeholder="Search Pandit" aria-label="Recipient's username" aria-describedby="basic-addon2"> </div> -->
+                <!-- End Default Light Table -->
+</body>
+</html>
+<div id="loader" style="display:none;" class="loader-overlay">
+    <div class="loader"></div>
+    <p>Uploading... Please wait.</p>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // On form submission, show the loader
+            $('#uploadForm').submit(function (event) {
+                $('#loader').show();  // Show loader when the form is submitted
+            });
+        });
+    </script>
+}
+
+<style>
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Loader text */
+    .loader-overlay p {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+
+ 
+
+

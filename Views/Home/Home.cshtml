@@ -1,0 +1,254 @@
+﻿@model List<MyPaySlipLive.Models.BlogDto>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OMCS</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+ 
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+  
+    <div class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 col-6">
+                    <a asp-area="" asp-controller="Home" asp-action="Home">
+                        <img src="images/logo.png" width="265" height="92" alt="logo" style="max-width: 100%; height: auto;">
+                    </a>
+                </div>
+<<<<<<< HEAD
+                <div class="col-md-9 col-6" style="display: flex ;  align-items: self-end;  justify-content: end;">
+                    <div class="nav d-flex justify-content-end">
+                        <ul class="nav_list_omcs list-unstyled d-flex flex-wrap m-0">
+                            <li class="mx-2 mb-3 justify-content-end">
+                                  <form  asp-controller="Account" asp-action="Login" method="get" >
+                                    <button class="slipButton" type="submit">Download MyWageSlip</button>
+                                </form>
+                            </li>
+=======
+
+                <div class="col-md-9">
+                    <div class="pull-right margin-t-10">
+                        <a href="#"><i class="fa fa-2x fa-facebook white-color margin-r-10"></i></a>
+                        <a href="#"> <i class="fa fa-2x fa-linkedin white-color margin-r-10"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="nav pull-right">
+
+                        <ul>
+
+                            <li><a asp-area="" asp-controller="Home" asp-action="Home"> Home </a> </li>
+                             <li><a href="#"> Contact </a> </li>
+
+>>>>>>> 015c68a791fdcb46e0daaee858d7e4494ebb48f8
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="container">
+
+        <div class="row">
+
+<<<<<<< HEAD
+=======
+            <div class="col-md-4">
+
+
+                <div class="list-group margin-t-25">
+                    <a class="list-group-item active" target="_blank" href="http://goo.gl/forms/IQK8XvyPNI"><i class="fa fa-hand-o-right"></i> Submit Leave Application</a>
+                    @* <a class="list-group-item" target="_blank" href="#"><i class="fa fa-hand-o-right"></i> Download SalarySlip</a> *@
+                    <a class="list-group-item" asp-area="" asp-controller="Account" asp-action="Login" asp-route-companyCode="olympus"><i class="fa fa-hand-o-right"></i> Download SalarySlip</a>
+                    <a class="list-group-item" target="_blank" href="https://goo.gl/forms/FkwTkll8bu"><i class="fa fa-hand-o-right"></i> Refer your friends</a>
+                     <a class="list-group-item" target="_blank" href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/"><i class="fa fa-hand-o-right"></i> EPF/UAN check balance</a>
+                    <a class="list-group-item" asp-area="" asp-controller="Home" asp-action="Insurance"><i class="fa fa-hand-o-right"></i> Group Insurance</a>
+                    <a class="list-group-item" target="_blank" href="https://sso.esic.gov.in/ESICSSOAppLiferay/login.jsp"><i class="fa fa-hand-o-right"></i> ESI entitlements</a>
+                    <a class="list-group-item" target="_blank" href="http://goo.gl/forms/NfYd1h5bO8"><i class="fa fa-hand-o-right"></i> Update Contact Details</a>
+                    <a class="list-group-item" asp-area="" asp-controller="Home" asp-action="Faq"><i class="fa fa-hand-o-right"></i> FAQs Helpline</a>
+                    <a class="list-group-item" target="_blank" href="http://goo.gl/forms/tzbKjJqYGA"><i class="fa fa-hand-o-right"></i> Are you HAPPY? Tell us!</a>
+                    <a class="list-group-item" target="_blank" href="https://chat.whatsapp.com/I4a761NxwBEHqxMwk9VimQ"><i class="fa fa-hand-o-right"></i> HR Professionals Group</a>
+                    <!-- <a class="list-group-item" href="http://goo.gl/forms/IQK8XvyPNI"><i class="fa fa-hand-o-right"></i>Submit Leave Application</a> -->
+
+
+
+>>>>>>> 015c68a791fdcb46e0daaee858d7e4494ebb48f8
+
+            <div class="col-md-12">
+                <div class="mt-5">
+                    <p class="pLine">
+                        Try for one year for free for up to 49 employees per month.
+                    </p><br>
+                    <p style="color: #000; font-size: 15px;   margin-bottom: 15px;" class="margin-t-30 margin-b-20">
+                        After the free trial, subscribe at a cost almost equivalent to the paper/distribution cost incurred in Wage Slip distribution & Maintenance.<br>
+                        <strong>Call <a href="tel:+918000000048" style="color: #007BFF; text-decoration: none;">+91 80000 00048</a></strong> for activating your free trial.
+                    </p>
+                </div>
+<<<<<<< HEAD
+              
+               
+                
+                <div class="news_box" >
+                    @if(Model != null && Model.Any())
+                    {
+                        @foreach(var data in Model)
+                        {
+
+                            <div class="news_box_one">
+                                <a><i class="fa fa-calendar"></i> Date: @(data.Date?.ToString("dd-MMM-yy") ?? "N/A")</a>
+                                  <p>@Html.Raw(data.Details)</p>
+=======
+
+                <a href="https://omcs.in/" target="_blank"><img src="/images/picture1.png" width="350" height="100" alt="#" class="margin-b-10"></a>
+
+                <a href="https://mywageslip.com/" target="_blank"><img src="/images/logowg.png" width="350" height="80" alt="#"></a>
+
+                <a href="https://www.facebook.com/Olderadults/" target="_blank"><img src="/images/banner.jpg" width="350" height="90" alt="#" class="margin-b-10"></a>
+
+
+            </div>
+
+            <div class="col-md-8">
+
+                <!--      <img src="images/banner.gif" width="728" height="90" alt="banner"> -->
+
+                <h1 class="margin-t-30 margin-b-20 page-header">olympus: the people partner</h1>
+
+                <p class="margin-t-30 margin-b-20 page-header">
+                    You may loose your EPF
+                    contributions, if you have not shared your UAN of PF with us. We will
+                    generate it for you, only if you have started job first time with us.
+                </p>
+
+                <p class="margin-t-10">
+                    Olympus is a frontrunner in providing associates, third party payrolling & host of other HR services to Blue Chip Companies, in the north India. With complete
+                    transparency and statutory
+                    compliance as a forte, Olympus is giving tough competition to other temp staffing competitors.
+                </p>
+
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-9">
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Controls -->
+                            <div class="controls pull-right hidden-xs">
+                                <a data-slide="prev" href="#carousel-example" class="left fa fa-chevron-left btn btn-success black-btn"></a><a data-slide="next" href="#carousel-example" class="right fa fa-chevron-right btn btn-success black-btn"></a>
+>>>>>>> 015c68a791fdcb46e0daaee858d7e4494ebb48f8
+                            </div>
+                        }
+                       
+                    }
+                    else
+                    {
+                        <div class="news_box_one">
+                            <a  ><i class="fa fa-calendar"></i> Date: --</a>
+                            <h2>News Update</h2>
+                            <p>There Is No News For Now !!</p>
+                        </div>
+                    }
+                 
+                    <!-- box-1 -->
+ 
+                    <!-- box-4 -->
+
+                </div>
+            </div>
+            <!-- col-md-12 -->
+            <!-- Loader for the new data -->
+            <div id="loading" style="display:none;">
+                <p>Loading more news...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Copyright © 2024 MyWageSlip. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">
+                        Design and Developed by:
+                        <a target="_blank" href="https://elitewebtechnologies.com/" class="white-color">www.elitewebtechnologies.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+ 
+<script>
+      $(document).ready(function () {
+        let currentPage = 1;
+        const pageSize = 5;
+        let isLoading = false;
+        let hasMoreData = true;
+
+        function loadMoreNews() {
+            // Prevent multiple simultaneous requests
+            if (isLoading || !hasMoreData) return;
+
+            isLoading = true;
+            $('#loading').show();
+
+            $.ajax({
+                url: '@Url.Action("Home", "Home")',
+                type: 'GET',
+                data: {
+                    pageNumber: currentPage + 1,
+                    pageSize: pageSize
+                },
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                success: function (data) {
+                    if (data.trim()) {
+                        // Append new items to the news box
+                        $('.news_box').append(data);
+                        currentPage++;
+                    } else {
+                        // No more data
+                        hasMoreData = false;
+                        $('#loading').text('No more news to load');
+                    }
+                },
+                error: function () {
+                    $('#loading').text('Error loading more data');
+                },
+                complete: function () {
+                    isLoading = false;
+                    $('#loading').hide();
+                }
+            });
+        }
+
+        // Scroll event for infinite scroll
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                loadMoreNews();
+            }
+        });
+    });
+</script>
+

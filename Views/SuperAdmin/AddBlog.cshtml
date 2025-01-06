@@ -1,0 +1,237 @@
+﻿ @model MyPaySlipLive.Models.BlogViewModel
+
+<!doctype html>
+<html class="no-js h-100" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blog  Dashboard</title>
+
+    <style type="text/css">
+        .login-form {
+        }
+
+            .login-form form {
+                margin-bottom: 15px;
+                background: #f7f7f7;
+                box-shadow: 0px 3px 20px -7px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+
+            .login-form h2 {
+                margin: 0 0 15px;
+            }
+
+        .form-control, .btn {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+
+        .btn {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="h-100">
+    <div class="container-fluid">
+        <div class="row">
+            <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+                <div class="main-navbar sticky-top bg-info p-2 d-flex ">
+                    <!-- Main Navbar -->
+                    <div class="container">
+                        <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0 row">
+
+                            <div class="col-7 col-lg-2">
+                                <form action="#" class="main-navbar__search w-100 d-md-flex d-lg-flex">
+                                    <div class="input-group input-group-seamless ml-3">
+                                        <a href="/"><img src="~/images/logo/logo.png" width="180"></a>
+                                    </div>
+                                </form>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+                <!-- / .main-navbar -->
+                <div class="main-content-container container px-4">
+
+                    <!-- Page Header -->
+                    <div class="page-header row mt-4">
+                        <div class="d-block w-100 col-12 col-lg-9">
+                            <ul class="d-flex menu-list">
+                                <li><a asp-area="" asp-controller="SuperAdmin" asp-action="AddBlog">Add Blog</a></li>
+                                <li><a asp-area="" asp-controller="SuperAdmin" asp-action="Dashboard">Manage Company</a></li>
+                                <li><a asp-area="" asp-controller="SuperAdmin" asp-action="PaySlipDashBoard">Export Slip</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="Logout">logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Page Header -->
+                    <!-- Default Light Table -->
+                    <div class="login-form">
+                        <form method="post" asp-action="ManageBlog">
+                            <h4 class="text-center">Add Blog</h4>
+                            <input type="hidden" name="BlogObJ.Id" value="@Model.BlogObJ.Id" />
+                            <div class="form-group">
+                                <div id="editor-container" style="height: 200px;"></div>
+                                <input type="hidden" name="BlogObJ.Details" id="blogDetails" required="required" value="@Model.BlogObJ.Details">
+                            </div>
+
+
+                            @*   <div class="form-group">
+
+                            <input type="text" name="BlogObJ.Details" class="form-control" placeholder="Write Something..." required="required" value="@Model.BlogObJ.Details" autocomplete="off">
+                            </div> *@
+                            <div class="form-group mt-2">
+                                <button type="submit" id="submitButton" class="btn btn-primary btn-block"> @(Model.BlogObJ.Id == Guid.Empty ? "Add" : "Update")</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-small mb-4">
+                                <div class="card-header border-bottom">
+                                    <h6 class="m-0">Blog Listing</h6>
+                                </div>
+                                <div class="card-body p-0 pb-3 text-center">
+                                    <table class="table mb-0">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th scope="col" class="border-0">#</th>
+                                                <th scope="col" class="border-0">Blog Detail</th>
+                                                <th scope="col" class="border-0">Date</th>
+                                                <th scope="col" class="border-0">Action</th>
+                                            </tr>
+                                        </thead>
+                                        @if (Model.BlogList != null && Model.BlogList.Any())
+                                        {
+                                            int SNo = (Model.CurrentPageSize * Model.CurrentPage) - Model.CurrentPageSize;
+                                            @foreach (var blog in Model.BlogList)
+                                            {
+                                                SNo++;
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td>@SNo</td>
+                                                        <td>@Html.Raw(blog.Details.Length > 99 ? blog.Details.Substring(0, 99) + "..." : blog.Details)</td>
+                                                        <td>@blog.Date</td>
+                                                        <td><a asp-action="EditBlog" asp-route-id="@blog.Id" class="mb-2 btn btn-sm btn-outline-primary mr-1">Edit</a></td>
+                                                        <td scope="col" class="border-0">
+                                                            <button type="button" class="btn-custom-pay btn btn-sm btn-outline-danger btn-info btn-lg" onclick="showPopup('@blog.Id',@Model.CurrentPage)">
+                                                                Delete
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+
+                                            }
+                                            @if (Model.TotalPages > 1)
+                                            {
+                                                <nav aria-label="Page navigation" class="m-4">
+                                                    <ul class="pagination">
+                                                        @for (var i = 1; i <= Model.TotalPages; i++)
+                                                        {
+                                                            <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                                                                <a class="page-link" asp-action="AddBlog" asp-route-pageNumber="@i">@i</a>
+                                                                @* <a class="page-link" onclick="CompanyList(@i)">@i</a> *@
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </nav>
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            <div>No Blog Found!!</div>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+</body>
+</html>
+
+
+<!-- Modal For Reset Password of Employees -->
+<div class="modal fade" id="blogDeleteModal" tabindex="-1" role="dialog" aria-labelledby="blogDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="blogDeleteModalLabel">Reset Password</h5>
+                <button type="button" class="close" onclick="closePopup()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <div class="modal-body">
+                <p>Are you sure you want to delete this Blog?</p>
+
+                <form asp-controller="SuperAdmin" asp-action="DeleteBlog" method="post">
+                    <input type="hidden" asp-for="BlogId" id="blogId" />
+                    <input type="hidden" asp-for="CurrentPage" id="blogPageNumber" />
+                    <button type="submit" class="btn btn-primary" id="submitResetPassword">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPopup(Id, PageNumber) {
+        $('#blogDeleteModal').modal('show');
+        $('#blogId').val(Id);
+        $('#blogPageNumber').val(PageNumber);
+    }
+
+    function closePopup() {
+        $('#blogDeleteModal').modal('hide');
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.snow.css" integrity="sha512-ggYQiYwuFFyThzEv6Eo6g/uPLis4oUynsE88ovEde5b2swycOh9SlAI8FL/cL2AkGGNnWADPXcX2UnPIJS2ozw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.min.js" integrity="sha512-1nmY9t9/Iq3JU1fGf0OpNCn6uXMmwC1XYX9a6547vnfcjCY1KvU9TE5e8jHQvXBoEH7hcKLIbbOjneZ8HCeNLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+    // Initialize Quill editor
+    var quill = new Quill('#editor-container', {
+        theme: 'snow', // Use the snow theme
+        placeholder: 'Write Something...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+                [{ 'header': 1 }, { 'header': 2 }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'size': ['small', false, 'large', 'huge'] }],
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+                ['clean'],
+                ['link', 'image']
+            ]
+        }
+    });
+    var blogDetailsInput = document.getElementById('blogDetails');
+    quill.root.innerHTML = blogDetailsInput.value;
+
+    document.getElementById('submitButton').addEventListener('click', function () {
+        blogDetailsInput.value = quill.root.innerHTML;
+        document.querySelector('form').submit();
+    });
+</script>
+

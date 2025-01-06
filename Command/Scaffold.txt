@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=198.12.253.79;Initial Catalog=Payslip_Dev;Persist Security Info=False;User ID=SA;Password=Atlantic@1ndia;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=true;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir DAL -Context PayslipDbContext -force

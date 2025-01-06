@@ -1,0 +1,247 @@
+﻿ @model List<MyPaySlipLive.Models.AdminModel.UserDetailViewModel>
+<!doctype html>
+<html class="no-js h-100" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Admin  Dashboard</title>
+	<meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<style type="text/css">
+		.position-sticky {
+			position: sticky;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
+</head>
+<body class="h-100">
+	<div class="container-fluid">
+		<div class="row">
+
+			<!-- End Main Sidebar -->
+			<main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+				<div class="main-navbar sticky-top bg-white">
+					<!-- Main Navbar -->
+					<nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0 row" style="background-color: #00b8d8;">
+						<form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+							<div class="input-group input-group-seamless ml-3">  <a href="/"><img src="~/images/logo/logo.png" width="180"></a></div>
+						</form>
+						<ul class="navbar-nav border-left flex-row align-items-center">
+
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+
+									<span class="d-none d-md-inline-block">Have an Account?</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-small">
+									<a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
+										<i class="material-icons">&#xE7FD;</i> Logout
+									</a>
+									<a class="dropdown-item" asp-controller="User" asp-action="ResetMyPassword">
+										<i class="material-icons">vertical_split</i> Change Password
+									</a>
+								</div>
+							</li>
+						</ul>
+						<nav class="nav">
+							<a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+								<i class="material-icons">&#xE5D2;</i>
+							</a>
+						</nav>
+					</nav>
+				</div>
+				<!-- / .main-navbar -->
+
+				<div class="container-fluid px-4">
+					<!-- Page Header -->
+					<!-- Print button -->
+					<button class="btn btn-primary mb-3" type="button" onclick="window.print()">Print</button>
+
+					<!-- Salary list table -->
+					<div id="salaryTableContainer" style="overflow-x: auto;">
+						<table class="table table-bordered table-hover table_body_border table-sm">
+
+							@if (Model != null && Model.Any())
+							{
+								@foreach (var data in Model)
+								{
+
+
+									<tbody>
+
+
+										<tr>
+											<th>Company</th>
+ 											<td>@(User.Claims.FirstOrDefault(c => c.Type == "CompanyName")?.Value ?? "Default Company")</td>
+											<th>Location</th>
+											<td>@data.Location</td>
+
+
+											<th></th>
+											<td></td>
+										
+
+
+
+											<th>Month</th>
+											<td>@data.Month / @data.Year</td>
+											<th>Transferred to A/C</th>
+											<td>@data.Account</td>
+										</tr>
+
+										<tr>
+											<th>Name</th>
+											<td>@data.Name</td>
+											<th>Basic</th>
+											<td>@data.Basic</td>
+
+
+
+											<th>Ebasic</th>
+											<td>@data.Ebasic</td>
+										
+
+
+
+											<th>PF</th>
+											<td>@data.Pf</td>
+											<th>Vide Cheque #</th>
+											<td>@data.Chq</td>
+										</tr>
+
+										<tr>
+											<th>E Code</th>
+											<td>@data.Ecode</td>
+											<th>Ttl</th>
+											<td>@data.Total</td>
+
+											<th>HRA</th>
+											<td>@data.Ehra</td>
+										
+
+
+
+											<th>Esi</th>
+											<td>@data.Esi</td>
+											<th>Net INR</th>
+											<td>@data.NetInr</td>
+										</tr>
+										<tr>
+											<th>Designation</th>
+											<td>@data.Category</td>
+											<th>Days</th>
+											<td>@data.Wdays</td>
+
+											<th>Conv</th>
+											<td>@data.Eca</td>
+											
+
+
+											<th>Advance/Other</th>
+											<td>@data.Advance</td>
+											<th>PE</th>
+											<td>@data.Company</td>
+
+
+										</tr>
+										<tr>
+											<th>UAN Number</th>
+											<td>@data.PfNumber</td>
+											<th>nh/lv</th>
+											<td>@data.Leaves</td>
+
+											<th>Others</th>
+											<td>@data.Eallow</td>
+											
+
+
+
+
+
+											<th>TDS</th>
+											<td>@data.Tax</td>
+
+											@* Category *@
+											<th>Dept</th>
+											<td>@data.SalBasis</td>
+
+
+										</tr>
+										<tr>
+											<th>ESI Number</th>
+											<td>@data.EsiNumber</td>
+											<th>Reimb</th>
+											<td>@data.ReImb</td>
+
+											<th>Total</th>
+											<td>@data.Etotal</td>
+										 
+
+
+											<th>Total Deduction</th>
+											<td>@data.Tded</td>
+											<th>Remark</th>
+											<td>@data.Remark</td>
+
+										</tr>
+
+
+
+
+									</tbody>
+
+
+
+
+								}
+							}
+							else
+							{
+								<div><h6>NO RECORD FOUND !!!</h6></div>
+							}
+
+
+						</table>
+					</div>
+
+
+
+
+					<div class="clearfix"></div>
+
+				</div>
+
+				<div class="clearfix"></div>
+				<!-- <div class="input-group-prepend"> -->
+				<!-- <button class="btn btn-primary" type="button">Add To Franchise</button> -->
+				<!-- </div> -->
+				<!-- <input type="text" class="form-control" placeholder="Search Pandit" aria-label="Recipient's username" aria-describedby="basic-addon2"> </div> -->
+				<!-- End Default Light Table -->
+
+
+				<footer class="main-footer d-flex p-2 px-3 bg-white border-top position-sticky">
+					<span class="copyright mx-auto my-auto mr-2">Copyright © My Wage Slip.</span>
+				</footer>
+
+
+
+
+
+</body>
+</html>
+
+
+<style>
+
+
+	.table_body_border tbody:first-child {
+		border-top: 0px solid #dee2e6 !important;
+	}
+
+	.table_body_border tbody {
+		border-top: 40px solid #fff !important;
+	}
+
+</style>

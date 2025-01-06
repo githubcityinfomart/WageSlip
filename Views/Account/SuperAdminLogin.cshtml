@@ -1,0 +1,136 @@
+﻿@model MyPaySlipLive.Models.LoginDto
+
+<title>Admin  Dashboard</title>
+
+<style type="text/css">
+    .login-form {
+        width: 500px;
+        margin: 50px auto;
+    }
+
+        .login-form form {
+            margin-bottom: 15px;
+            background: #f7f7f7;
+            box-shadow: 0px 3px 20px -7px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        .login-form h2 {
+            margin: 0 0 15px;
+        }
+
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+
+    .btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .position-add {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    @@media screen and (max-width: 800px) {
+        .login-form {
+            width: 100%;
+        }
+    }
+</style>
+
+<body class="h-100">
+    <div class="container-fluid">
+        <div class="row">
+            <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+                <div class="main-navbar sticky-top bg-info p-2 d-flex ">
+                    <!-- Main Navbar -->
+                    <div class="container">
+                        <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0 row">
+
+                            <div class="col-7 col-lg-2">
+                                <form action="#" class="main-navbar__search w-100 d-md-flex d-lg-flex">
+                                    <div class="input-group input-group-seamless ml-3">
+                                        <a href="/"><img src="~/images/logo/logo.png" width="180"></a>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-5 col-lg-2">
+                                <ul class="navbar-nav flex-row align-items-center justify-content-end">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <span class=" d-md-inline-block text-white">Have an Account?</span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-small">
+                                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Login"> Login </a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ResetPassword"> Change Password</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+                <!-- / .main-navbar -->
+                <div class="main-content-container container px-4">
+
+                    <!-- Page Header -->
+                    <div class="page-header row mt-4">
+                        <div class="d-block w-100 col-12 col-lg-9">
+                            <ul class="d-flex menu-list">
+                                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="Index">About Us</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="Login">Latest Minimum Wage</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-3 mb-0">
+                            <a asp-area="" asp-controller="Account" asp-action="Login">Take Employee Satisfaction Survey</a>
+                        </div>
+                    </div>
+                    <!-- End Page Header -->
+                    <!-- Default Light Table -->
+                    <div class="login-form">
+                        <form asp-action="Login" method="post">
+                            <h2 class="text-center">Log in</h2>
+
+                            <div class="form-group">
+                                <label asp-for="Username" class="control-label"></label>
+                                <input asp-for="Username" type="text" class="form-control"   autocomplete="off" autofill="off" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" type="password" placeholder="Password" autocomplete="off" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input asp-for="RememberMe" class="form-check-input" type="checkbox" />
+                                    <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Log in" class="btn btn-primary btn-block" />
+                            </div>
+                            @*    <div class="form-group">
+                            <a class="btn btn-primary btn-block" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+                            </div> *@
+
+                        </form>
+                        <p><strong>Note:</strong> Username is your EmpCode and default password is EEENNN where EEE are the first three numbers of your employee code and NNN are the first three alphabets of your name.</p>
+                    </div>
+                </div>
+
+
+                <!-- End Default Light Table -->
+
+
+
+</body>
+
+

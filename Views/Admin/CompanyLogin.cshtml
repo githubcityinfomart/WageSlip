@@ -1,0 +1,43 @@
+﻿@model MyPaySlipLive.Models.AdminModel.CompanyLoginViewModel
+
+@{
+    ViewData["Title"] = "Company Login";
+}
+
+<h2>Company Login</h2>
+
+<form asp-action="CompanyLogin" method="post">
+    <div class="form-group">
+        <label asp-for="CompanyCode" class="control-label"></label>
+        <input asp-for="CompanyCode" class="form-control" />
+        <span asp-validation-for="CompanyCode" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Username" class="control-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </div>
+
+    <div class="form-group">
+        <a asp-action="ForgotPassword">Forgot Password?</a>
+    </div>
+
+    <div class="form-group">
+        <p class="note">* Note: If you have trouble logging in, please contact support for assistance.</p>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

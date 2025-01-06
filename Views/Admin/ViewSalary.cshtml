@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MyPaySlipLive.Models.AdminModel.SalaryListViewModel>
+
+@{
+    ViewData["Title"] = "Salary List";
+}
+
+<h2>Salary List</h2>
+
+<!-- Print button -->
+<button class="btn btn-primary mb-3"  type="button">Print</button>
+
+<!-- Salary list table -->
+<div id="salaryTableContainer" style="overflow-x: auto;">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>User</th>
+                <th>Sap Code</th>
+                <th>Designation</th>
+                <th>PF Number</th>
+                <th>ESI Number</th>
+                <th>Location</th>
+                <th>Basic</th>
+                <th>Total</th>
+                <th>Days</th>
+                <th>NH/LV</th>
+                <th>Reimbursement</th>
+                <th>HRA</th>
+                <th>Conveyance</th>
+                <th>Others</th>
+                <th>Total</th>
+                <th>Month</th>
+                <th>PF</th>
+                <th>ESI</th>
+                <th>Advance</th>
+                <th>TDS</th>
+                <th>Transferred To A/C</th>
+                <th>Vide Check</th>
+                <th>Net INR</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CompanyName</td>
+                    <td>@item.User</td>
+                    <td>@item.SapCode</td>
+                    <td>@item.Designation</td>
+                    <td>@item.PfNumber</td>
+                    <td>@item.EsiNumber</td>
+                    <td>@item.Location</td>
+                    <td>@item.Basic</td>
+                    <td>@item.Ttl</td>
+                    <td>@item.Days</td>
+                    <td>@item.NhLv</td>
+                    <td>@item.Reimb</td>
+                    <td>@item.Hra</td>
+                    <td>@item.Conv</td>
+                    <td>@item.Others</td>
+                    <td>@item.Total</td>
+                    <td>@item.Month</td>
+                    <td>@item.Pf</td>
+                    <td>@item.Esi</td>
+                    <td>@item.Adv</td>
+                    <td>@item.Tds</td>
+                    <td>@item.TransferredToAc</td>
+                    <td>@item.VideCheck</td>
+                    <td>@item.NetInr</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@* <script>
+    function printTable() {
+        // Create a new window
+        var printWindow = window.open('', '', 'height=600,width=800');
+
+        // Add table content to the new window
+        printWindow.document.write('<html><head><title>Print Table</title>');
+        printWindow.document.write('<style>table { width: 100%; border-collapse: collapse; } th, td { border: 1px solid black; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } </style>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write('<h2>Salary List</h2>'); // Optional header
+        printWindow.document.write(document.getElementById('salaryTableContainer').innerHTML);
+        printWindow.document.write('</body></html>');
+
+        // Close the document and trigger the print dialog
+        printWindow.document.close();
+        printWindow.focus(); // Necessary for IE
+        printWindow.print();
+    }
+</script> *@
